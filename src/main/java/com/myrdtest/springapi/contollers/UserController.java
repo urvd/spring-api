@@ -5,17 +5,17 @@ import com.myrdtest.springapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/user")
+@RestController("/api")
+//@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
 	UserService userService;
-	@PostMapping
+	@PostMapping("/user")
 	public String registerUser(@RequestBody User user){
 		return userService.register(user);
 	}
-	@GetMapping("/{id}")
+	@GetMapping("/user/{id}")
 	public User selectUser(@PathVariable int id){
 		return userService.find(id);
 	}
